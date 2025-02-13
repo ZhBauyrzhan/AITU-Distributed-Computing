@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 10s  # Adjust as needed
+
+scrape_configs:
+  - job_name: 'spark-driver'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['10.58.94.45:9090']  # Replace with actual driver hostname/IP
+
+  - job_name: 'spark-executors'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['10.58.94.66:9090']  # Replace with actual executor hostname/IP

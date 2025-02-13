@@ -58,25 +58,25 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        File img1 = new File("src/kobe1.jpeg");
+        File img1 = new File("src/pexels-wender-junior-souza-vieira-9757411-16233863.jpg");
         BufferedImage in = ImageIO.read(img1);
         long startTime = System.currentTimeMillis();
         BufferedImage result1 = parallelProgram(in);
         long endTime = System.currentTimeMillis();
         System.out.println("That took " + (endTime - startTime) + " milliseconds");
-        File outputfile = new File("src/image.jpeg");
-        ImageIO.write(result1, "jpeg", outputfile);
+        File outputfile = new File("src/image.jpg");
+        ImageIO.write(result1, "jpg", outputfile);
         showImages(in, result1);
 
-        File img2 = new File("src/2.jpeg");
+        File img2 = new File("src/pexels-wender-junior-souza-vieira-9757411-16233863.jpg");
         BufferedImage in2 = ImageIO.read(img2);
 
         startTime = System.currentTimeMillis();
         BufferedImage result2 = multiThreadProgram(in2, 2);
         endTime = System.currentTimeMillis();
         System.out.println("That took " + (endTime - startTime) + " milliseconds");
-        File outputfile2 = new File("src/image2.jpeg");
-        ImageIO.write(result2, "jpeg", outputfile2);
+        File outputfile2 = new File("src/image2.jpg");
+        ImageIO.write(result2, "jpg", outputfile2);
         showImages(in2, result2);
 
 
@@ -84,8 +84,16 @@ public class Main {
         BufferedImage result3 = multiThreadProgram(in2, 4);
         endTime = System.currentTimeMillis();
         System.out.println("That took " + (endTime - startTime) + " milliseconds");
-        File outputfile3 = new File("src/image3.jpeg");
-        ImageIO.write(result3, "jpeg", outputfile3);
+        File outputfile3 = new File("src/image3.jpg");
+        ImageIO.write(result3, "jpg", outputfile3);
         showImages(in2, result3);
+
+        startTime = System.currentTimeMillis();
+        BufferedImage result4 = multiThreadProgram(in2, 8);
+        endTime = System.currentTimeMillis();
+        System.out.println("That took " + (endTime - startTime) + " milliseconds");
+        File outputfile4 = new File("src/image4.jpg");
+        ImageIO.write(result4, "jpg", outputfile4);
+        showImages(in2, result4);
     }
 }
